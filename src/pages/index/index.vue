@@ -1,37 +1,28 @@
 <template>
   <view class="index">
-    <view>
-      <img src="" alt="">
-    </view>
-    {{ msg }}
-    <view class="btn">
-      <nut-button type="primary" @click="handleClick('text', msg2, true)">点我</nut-button>
-    </view>
-    <nut-toast :msg="msg" v-model:visible="show" :type="type" :cover="cover" />
+    <common-title title="试卷列表"/>
+    <nut-cell v-for="item in list" :title="123"></nut-cell>
+
   </view>
 </template>
 
 <script lang="ts">
-import { reactive, toRefs } from 'vue';
+import {reactive, toRefs} from 'vue';
+import CommonTitle from "../../components/common-title.vue";
+
 export default {
   name: 'Index',
-  components: {
-    
-  },
-  setup(){
+  components: {CommonTitle},
+  setup() {
     const state = reactive({
-      msg: '欢迎使用 NutUI3.0 开发小程序',
-      msg2: '你成功了～',
-      type: 'text',
-      show: false,
-      cover: false
+      list: [
+        {id: 1, title: "试卷A"},
+        {id: 2, title: "试卷B"},
+        {id: 3, title: "试卷C"},
+      ]
     });
 
     const handleClick = (type: string, msg: string, cover: boolean = false) => {
-      state.show = true;
-      state.msg2 = msg;
-      state.type = type;
-      state.cover = cover;
     };
 
     return {
@@ -44,9 +35,8 @@ export default {
 
 <style lang="scss">
 .index {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  margin-top: 80px;
 }
+
 </style>
