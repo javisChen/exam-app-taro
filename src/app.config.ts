@@ -3,6 +3,7 @@ export default {
         'pages/login/login',
         'pages/index/index',
         'pages/my/my',
+        'pages/paperinfo/paperinfo',
     ],
     window: {
         backgroundTextStyle: 'light',

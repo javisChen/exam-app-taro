@@ -1,13 +1,13 @@
 <template>
   <view class="index">
     <common-title title="试卷列表"/>
-    <nut-cell v-for="item in list" :title="123"></nut-cell>
-
+    <nut-cell @click="handleClick" v-for="item in list" :title="123"></nut-cell>
   </view>
 </template>
 
 <script lang="ts">
 import {reactive, toRefs} from 'vue';
+import Taro from '@tarojs/taro';
 import CommonTitle from "../../components/common-title.vue";
 
 export default {
@@ -23,6 +23,9 @@ export default {
     });
 
     const handleClick = (type: string, msg: string, cover: boolean = false) => {
+      Taro.redirectTo({
+        url: 'pages/paperinfo/paperinfo'
+      })
     };
 
     return {
